@@ -1,6 +1,7 @@
 package firstTask;
 
 import java.util.Random;
+import java.util.Arrays;
 
 // 13 v
 
@@ -8,6 +9,30 @@ public class Main {
 
    final public static char fillSymbol = '$';
 
+   public static void sortStringArray(String[] strArr) {
+       String buffer = "";
+       boolean mustSort = false;
+
+       do {
+           mustSort = false;
+           for (int i = 0; i < strArr.length - 1; i++) {
+               if (strArr[i].length() < strArr[i + 1].length()) {
+                   buffer = strArr[i];
+                   strArr[i] = strArr[i + 1];
+                   strArr[i + 1] = buffer;
+                   mustSort = true;
+                   break;
+               }
+           }
+       } while (mustSort);
+   }
+
+   /**
+    * <p>PrintArray()</p>
+    * Перегруженная функция, которая используется для того, чтобы вывести в стандартный поток вывода
+    * Параметры функции:
+    * @param intArray Ссылка, на двумерный массив целых чисел
+    */
    public static void printArray(int[][] intArray)
    {
        for (int i = 0; i < intArray.length; i++) {
@@ -18,6 +43,12 @@ public class Main {
 
        }
    }
+    /**
+     * <p>PrintArray()</p>
+     * Перегруженная функция, которая используется для того, чтобы вывести в стандартный поток вывода
+     * Параметры функции:
+     * @param stringArray Ссылка, на одномерный массив строк
+     */
    public static void printArray(String[] stringArray)
    {
        for (int i = 0; i < stringArray.length; i++) {
@@ -59,18 +90,38 @@ public class Main {
         return min;
     }
 
+    public static int randomValueFromFiveToTwentyOne(Random random) {
+       return random.nextInt(5, 22);
+    }
+
     public static void main(String[] args)
     {
-        int rows = 3, cols = 3;
-
         // 5 7 9 11 13 15 17 19 21
+       final int rows = 3, cols = 3;
+
         int[][] intArr = new int[rows][cols];
         fill2DArray(intArr);
         printArray(intArr);
 
         String[] strArr = new String[cols];
         fillStringArray(strArr, intArr);
+        sortStringArray(strArr);
         printArray(strArr);
+
+    //////////////////////////////////////////////////
+        Random rand = new Random();
+
+        int[][] s_intArr = new int[rows][cols];
+        String[] s_strArr = new String[cols];
+
+        //Arrays.setAll(s_intArr, );
+
+        //Arrays.fill(s_strArr, )
+
+        //printArray(s_intArr);
+
+
+
     }
 }
 
