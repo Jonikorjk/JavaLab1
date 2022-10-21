@@ -90,9 +90,6 @@ public class Main {
         return min;
     }
 
-    public static int randomValueFromFiveToTwentyOne(Random random) {
-       return random.nextInt(5, 22);
-    }
 
     public static void main(String[] args)
     {

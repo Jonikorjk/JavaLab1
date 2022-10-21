@@ -1,0 +1,9 @@
+for start this program print in console (she must be located in CLASSPATH. if your console located in project directory print: cd .\src\fourthTask\)
+java .\Main.java arg1 arg2
+where arg1 - it's string which will be modified
+and arg2 it's count of spaces
+
+
+for better debugging replace variable "space" in Main.class to another char
+Example:
+    java .\Main.java "Hello     world!!!  It's ME    "   "25"
