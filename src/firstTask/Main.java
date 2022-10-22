@@ -4,10 +4,22 @@ import java.util.*;
 
 // 13 v
 
+/**
+ * <p>Main()</p>
+ * Class for solving 1 task
+ */
 public class Main {
 
    final public static String fillSymbol = "$";
 
+    /**
+     * <p>fill1DArray()</p>
+     * Creates an array of ints enters a random value from 5 to 21 (inclusive)
+     * Used in conjunction with the java.util.Arrays class
+     * Function parameters:
+     * @param length the length of the returned array
+     * @return an array of ints filled with random numbers from the interval [5,21]
+     */
    public static int[] fill1DArray(int length) {
        Random rand = new Random();
        int[] arr = new int[length];
@@ -17,6 +29,12 @@ public class Main {
        return arr;
    }
 
+    /**
+     * <p>sortStringArray()</p>
+     * Sorting function, uses bubble sort algorithm
+     * Function parameters:
+     * @param strArr Reference to an array of strings
+     */
    public static void sortStringArray(String[] strArr) {
        String buffer = "";
        boolean mustSort = false;
@@ -35,12 +53,12 @@ public class Main {
        } while (mustSort);
    }
 
-   /**
-    * <p>PrintArray()</p>
-    * Перегруженная функция, которая используется для того, чтобы вывести в стандартный поток вывода
-    * Параметры функции:
-    * @param intArray Ссылка, на двумерный массив целых чисел
-    */
+    /**
+     * <p>PrintArray()</p>
+     * Overloaded function that is used to print to standard output
+     * Function parameters:
+     * @param intArray Reference to a two-dimensional array of integers
+     */
    public static void printArray(int[][] intArray)
    {
        for (int i = 0; i < intArray.length; i++) {
@@ -53,9 +71,9 @@ public class Main {
    }
     /**
      * <p>PrintArray()</p>
-     * Перегруженная функция, которая используется для того, чтобы вывести в стандартный поток вывода
-     * Параметры функции:
-     * @param stringArray Ссылка, на одномерный массив строк
+     * Overloaded function that is used to print to standard output
+     * Function parameters:
+     * @param stringArray A reference to a one-dimensional array of strings
      */
    public static void printArray(String[] stringArray)
    {
@@ -64,7 +82,13 @@ public class Main {
        }
    }
 
-
+    /**
+     * <p>fillStringArray()</p>
+     * Function to populate an array of strings
+     * Function parameters:
+     * @param stringArr Reference to a one-dimensional array of strings
+     * @param intArray Reference to a two-dimensional array of ints
+     */
    public static void fillStringArray(String[] stringArr, int[][] intArray)
    {
        for (int i = 0; i < stringArr.length; i++) {
@@ -77,7 +101,12 @@ public class Main {
        }
    }
 
-
+    /**
+     * <p>fill2DArray()</p>
+     * Function for filling a two-dimensional array of ints
+     * Function parameters:
+     * @param arr Reference to a two-dimensional array of ints
+     */
     public static void fill2DArray(int[][] arr)
     {
         Random rand = new Random();
@@ -88,6 +117,14 @@ public class Main {
         }
     }
 
+    /**
+     * <p>getMaxOfCol()</p>
+     * Function to get the maximum element in a column
+     * Function parameters:
+     * @param arr Reference to a two-dimensional array of ints
+     * @param row is an int variable that specifies the column to be searched
+     * @return The maximum element in the column
+     */
     public static int getMaxOfCol(int[][] arr, int row)
     {
         if (row < 0 || row > (arr[0].length - 1)) {
@@ -102,6 +139,15 @@ public class Main {
         return max;
     }
 
+    /**
+     * <p>getMax()</p>
+     * Function to get the maximum element in a column
+     * Used in conjunction with the java.util.Arrays class
+     * Function parameters:
+     * @param arr Reference to a two-dimensional array of ints
+     * @param j an int variable that specifies the column to be searched
+     * @return The maximum element in the column
+     */
     public static int getMax(int[][] arr, int j) {
         Integer[] row = new Integer[arr.length];
         Arrays.setAll(row, i -> arr[i][j]);
