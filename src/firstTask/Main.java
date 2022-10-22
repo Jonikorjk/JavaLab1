@@ -1,13 +1,21 @@
 package firstTask;
 
-import java.util.Random;
-import java.util.Arrays;
+import java.util.*;
 
 // 13 v
 
 public class Main {
 
-   final public static char fillSymbol = '$';
+   final public static String fillSymbol = "$";
+
+   public static int[] fill1DArray(int length) {
+       Random rand = new Random();
+       int[] arr = new int[length];
+       for (int i = 0; i < arr.length ; i++) {
+           arr[i] = rand.nextInt(5, 22);
+       }
+       return arr;
+   }
 
    public static void sortStringArray(String[] strArr) {
        String buffer = "";
@@ -55,17 +63,21 @@ public class Main {
            System.out.println(stringArray[i]);
        }
    }
+
+
    public static void fillStringArray(String[] stringArr, int[][] intArray)
    {
        for (int i = 0; i < stringArr.length; i++) {
            stringArr[i] = "";
        }
        for (int i = 0; i < stringArr.length; i++) {
-           for (int j = 0; j < getMinOfRow(intArray,i); j++) {
+           for (int j = 0; j < getMaxOfCol(intArray,i); j++) {
                stringArr[i] += fillSymbol;
            }
        }
    }
+
+
     public static void fill2DArray(int[][] arr)
     {
         Random rand = new Random();
@@ -76,18 +88,25 @@ public class Main {
         }
     }
 
-    public static int getMinOfRow(int[][] arr, int row)
+    public static int getMaxOfCol(int[][] arr, int row)
     {
         if (row < 0 || row > (arr[0].length - 1)) {
             return -1;
         }
-        int min = arr[0][row];
+        int max = arr[0][row];
         for (int i = 0; i < arr.length; i++) {
-            if (min > arr[i][row]) {
-                min = arr[i][row];
+            if (max < arr[i][row]) {
+                max = arr[i][row];
             }
         }
-        return min;
+        return max;
+    }
+
+    public static int getMax(int[][] arr, int j) {
+        Integer[] row = new Integer[arr.length];
+        Arrays.setAll(row, i -> arr[i][j]);
+        Arrays.sort(row, Collections.reverseOrder());
+        return row[0];
     }
 
 
@@ -96,26 +115,43 @@ public class Main {
         // 5 7 9 11 13 15 17 19 21
        final int rows = 3, cols = 3;
 
+        System.out.println("Standart way");
+
         int[][] intArr = new int[rows][cols];
+
+        System.out.println("2D Array");
         fill2DArray(intArr);
         printArray(intArr);
 
+        System.out.println("Reslut");
         String[] strArr = new String[cols];
         fillStringArray(strArr, intArr);
         sortStringArray(strArr);
         printArray(strArr);
-
     //////////////////////////////////////////////////
-        Random rand = new Random();
 
-        int[][] s_intArr = new int[rows][cols];
+
+        System.out.println();
+        System.out.println("class Array Way");
+    //////////////////////////////////////////////////
+
+        int[][] s_intArr = new int[rows][];
+        int[] arr_of_max = new int[cols];
         String[] s_strArr = new String[cols];
 
-        //Arrays.setAll(s_intArr, );
+        Arrays.setAll(s_intArr, i -> fill1DArray(cols));
+        System.out.println("2D Array");
+        System.out.println((Arrays.deepToString(s_intArr)));
 
-        //Arrays.fill(s_strArr, )
+        System.out.println("Array of max");
+        Arrays.setAll(arr_of_max, i -> getMax(s_intArr, i));
+        System.out.println(Arrays.toString(arr_of_max));
 
-        //printArray(s_intArr);
+        Arrays.setAll(s_strArr, i -> fillSymbol.repeat(arr_of_max[i]));
+        Arrays.sort(s_strArr, (s1, s2) -> -Integer.compare(s1.length(), s2.length()));
+
+        System.out.println("Result");
+        System.out.println(Arrays.toString(s_strArr));
 
 
 

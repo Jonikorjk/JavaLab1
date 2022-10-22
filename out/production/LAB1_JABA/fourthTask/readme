@@ -6,4 +6,4 @@ and arg2 it's count of spaces
 
 for better debugging replace variable "space" in Main.class to another char
 Example:
-    java .\Main.java "Hello     world!!!  It's ME    "   "3"
+    java .\Main.java "Hello     world!!!  It's ME    "   "25"
