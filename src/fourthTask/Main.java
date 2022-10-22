@@ -2,7 +2,7 @@ package fourthTask;
 import java.util.*;
 
 public class Main {
-    private static final String space = " ";
+    private static final String space = "$";
     public static String putSpaces(String[] words, int lengthOfNewString) {
         if (words.length <= 0) {
             System.out.println("Error, length of words must be > 0");
@@ -13,17 +13,22 @@ public class Main {
         for (var v: words) {
             oldLength += v.length();
         }
-
         if (oldLength > lengthOfNewString) {
-            System.out.println("Error, newLength < oldLength");
+            System.out.println("Error, newLength must be newLength => oldLength");
             return "";
         }
-        String[] arrayOfSpaces;
-        if (words.length == 1)
-            arrayOfSpaces = new String[1];
-        else
-            arrayOfSpaces = new String[words.length - 1];
+        lengthOfNewString -= oldLength;
 
+        String[] arrayOfSpaces;
+        if (words.length == 1) {
+            String result = "";
+            for (int i = 0; i < lengthOfNewString; i++) {
+                result += space;
+            }
+            return result + words[0];
+        }
+
+        arrayOfSpaces = new String[words.length - 1];
         Arrays.fill(arrayOfSpaces, "");
 
         lengthOfNewString -= oldLength;
