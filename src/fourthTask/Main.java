@@ -31,7 +31,6 @@ public class Main {
         arrayOfSpaces = new String[words.length - 1];
         Arrays.fill(arrayOfSpaces, "");
 
-        lengthOfNewString -= oldLength;
         int switcher = 0;
         while (lengthOfNewString > 0) {
             if (switcher > arrayOfSpaces.length - 1) switcher = 0;
@@ -55,7 +54,9 @@ public class Main {
         while (argument.indexOf("  ") >= 0) {
             argument = argument.replaceAll("  ", " ");
         }
+
         String words[] = argument.split(" ");
+
         String result = putSpaces(words, countOfSpaces);
         System.out.println(result);
     }
