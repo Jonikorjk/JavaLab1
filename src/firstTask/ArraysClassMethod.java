@@ -9,7 +9,7 @@ import java.util.Random;
  */
 public class ArraysClassMethod {
 
-    final public static String fillSymbol = "$";
+    final public static String fillSymbol = "%";
 
     /**
      * <p>fill1DArray()</p>
