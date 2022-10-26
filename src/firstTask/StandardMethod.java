@@ -2,6 +2,9 @@ package firstTask;
 
 import java.util.Random;
 
+/**
+ * The class that solve task standart way
+ */
 public class StandardMethod {
 
     final public static String fillSymbol = "$";

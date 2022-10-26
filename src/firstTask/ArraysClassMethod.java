@@ -4,6 +4,9 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.Random;
 
+/**
+ *  The class which solve task using java.util.Arrays
+ */
 public class ArraysClassMethod {
 
     final public static String fillSymbol = "$";
